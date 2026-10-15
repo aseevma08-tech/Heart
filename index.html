@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c0709">
+<title>Для тебя</title>
+<meta property="og:title" content="Для тебя">
+<meta property="og:description" content="Нажми на сердце">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap">
+<style>
+/* Layout: one night screen. A heart of compliments blooms from its centre and beats; a tap on it starts the song and quickens the pulse. */
+:root{
+  --bg:#0c0709;
+  --halo:rgba(255,60,92,.16);
+  --ink:#f6e8e6;
+  --muted:#a68c91;
+  --rose:#ff4f64;
+  --rose-2:#ff7b8a;
+  --rose-3:#ffb3bb;
+  --hot:#ffe3e5;
+  --glow:rgba(255,52,86,.5);
+  --f-word:ui-rounded,"SF Pro Rounded",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --f-script:"Marck Script","Segoe Script","Brush Script MT",cursive;
+  --reveal:4s;
+  color-scheme:dark;
+}
+[hidden]{display:none!important}
+html{background:var(--bg)}
+html,body{height:100%}
+body{margin:0;padding-inline:16px;box-sizing:border-box;background:radial-gradient(70% 48% at 50% 40%,var(--halo),transparent 72%),var(--bg);color:var(--ink);overflow-x:hidden;-webkit-text-size-adjust:100%}
+.page{min-height:100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(16px,3.2vh,30px);padding-block:20px}
+.stage{display:block;flex:none;width:min(100%,560px);width:min(100%,560px,max(260px,calc((100svh - 220px) * 1.0169)));margin:0;padding:0;border:0;border-radius:24px;background:none;color:inherit;font:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.stage:focus-visible{outline:2px solid var(--rose-3);outline-offset:6px}
+.heart{display:block;width:100%;height:auto;overflow:visible;font:800 13.09px/1 var(--f-word);text-rendering:geometricPrecision;transform-origin:50% 46%;filter:drop-shadow(0 0 5px var(--glow));transition:filter .6s;animation:beat 2.8s ease-in-out calc(var(--reveal) + .9s) infinite}
+.stage.touched .heart{animation-delay:0s}
+.stage.playing .heart{filter:drop-shadow(0 0 10px var(--glow));animation:beat2 .9s ease-in-out infinite}
+.w{fill:var(--rose);animation:appear .8s ease-out var(--d,0s) backwards}
+.t2{fill:var(--rose-2)}
+.t3{fill:var(--rose-3)}
+.hot{fill:var(--hot)}
+.tw{animation:appear .8s ease-out var(--d,0s) backwards,twinkle 3.6s ease-in-out var(--t,0s) infinite}
+.note{margin:0;text-align:center;text-wrap:balance;font:400 clamp(2rem,8.6vw,3.4rem)/1.12 var(--f-script);color:var(--ink);animation:rise 1s ease-out calc(var(--reveal) + .1s) backwards}
+.hint{margin:0;font:700 .7rem/1 var(--f-word);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);animation:rise 1s ease-out calc(var(--reveal) + 1.3s) backwards}
+@keyframes appear{from{opacity:0;transform:translateY(5px)}}
+@keyframes twinkle{50%{fill:var(--hot)}}
+@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.028)}24%{transform:scale(1)}36%{transform:scale(1.02)}52%{transform:scale(1)}}
+@keyframes beat2{0%,100%{transform:scale(1)}14%{transform:scale(1.05)}28%{transform:scale(1)}42%{transform:scale(1.035)}60%{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(.5em)}}
+@media (prefers-reduced-motion:reduce){.w,.tw,.heart,.stage.playing .heart,.note,.hint{animation:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+  <button class="stage" id="stage" type="button" aria-label="Включить музыку">
+    <svg class="heart" viewBox="0 0 360 354" width="360" height="354" aria-hidden="true" focusable="false">
+    <path class="w" style="--d:3.63s" d="M99.5 16.5C89.7 9.3 93.3 0.4 99.5 5.3C105.7 0.4 109.3 9.3 99.5 16.5Z"/>
+    <path class="w t2" style="--d:3.80s" d="M260.5 16.5C250.7 9.3 254.3 0.4 260.5 5.3C266.7 0.4 270.3 9.3 260.5 16.5Z"/>
+    <text class="w t2" style="--d:3.37s" x="49.1" y="33.3" textLength="42.6" lengthAdjust="spacingAndGlyphs">милая</text>
+    <text class="w t3" style="--d:3.34s" x="109.5" y="33.3" textLength="17.9" lengthAdjust="spacingAndGlyphs">ты</text>
+    <path class="w tw" style="--d:2.91s;--t:6.12s" d="M150.6 35.0C140.8 27.9 144.4 19.0 150.6 23.9C156.8 19.0 160.4 27.9 150.6 35.0Z"/>
+    <text class="w" style="--d:3.38s" x="210.1" y="33.3" textLength="94.9" lengthAdjust="spacingAndGlyphs">Ты прекрасна</text>
+    <text class="w" style="--d:2.75s" x="32.4" y="51.8" textLength="129.0" lengthAdjust="spacingAndGlyphs">Ты очень красивая</text>
+    <text class="w hot" style="--d:2.43s" x="182.3" y="51.8" textLength="116.4" lengthAdjust="spacingAndGlyphs">Ты потрясающая</text>
+    <path class="w" style="--d:3.30s" d="M323.6 53.6C313.8 46.5 317.4 37.6 323.6 42.5C329.8 37.6 333.4 46.5 323.6 53.6Z"/>
+    <text class="w" style="--d:2.95s" x="23.7" y="70.4" textLength="103.1" lengthAdjust="spacingAndGlyphs">Ты лучик света</text>
+    <text class="w" style="--d:2.13s" x="161.9" y="70.4" textLength="109.1" lengthAdjust="spacingAndGlyphs">Ты невероятная</text>
+    <text class="w" style="--d:3.28s" x="305.0" y="70.4" textLength="32.3" lengthAdjust="spacingAndGlyphs">чудо</text>
+    <text class="w t3" style="--d:3.05s" x="14.7" y="89.0" textLength="85.4" lengthAdjust="spacingAndGlyphs">Ты стильная</text>
+    <text class="w t3" style="--d:2.11s" x="123.2" y="89.0" textLength="149.5" lengthAdjust="spacingAndGlyphs">Какая же ты красивая</text>
+    <text class="w t3" style="--d:3.04s" x="295.2" y="89.0" textLength="50.6" lengthAdjust="spacingAndGlyphs">лучшая</text>
+    <text class="w" style="--d:2.98s" x="11.4" y="107.6" textLength="65.3" lengthAdjust="spacingAndGlyphs">Ты милая</text>
+    <text class="w t2" style="--d:1.68s" x="91.7" y="107.6" textLength="86.3" lengthAdjust="spacingAndGlyphs">Ты чудесная</text>
+    <text class="w t3" style="--d:1.97s" x="193.3" y="107.6" textLength="85.6" lengthAdjust="spacingAndGlyphs">Ты классная</text>
+    <text class="w t2" style="--d:3.01s" x="293.7" y="107.6" textLength="55.0" lengthAdjust="spacingAndGlyphs">Ты чудо</text>
+    <text class="w t3" style="--d:2.45s" x="12.3" y="126.2" textLength="121.8" lengthAdjust="spacingAndGlyphs">Ты вдохновляешь</text>
+    <text class="w t2 tw" style="--d:1.69s;--t:6.60s" x="156.2" y="126.2" textLength="120.3" lengthAdjust="spacingAndGlyphs">Ты неповторимая</text>
+    <text class="w t2 tw" style="--d:3.25s;--t:7.63s" x="297.5" y="126.2" textLength="51.2" lengthAdjust="spacingAndGlyphs">нежная</text>
+    <text class="w t2 tw" style="--d:1.94s;--t:8.69s" x="16.4" y="144.8" textLength="132.4" lengthAdjust="spacingAndGlyphs">Ты очаровательная</text>
+    <text class="w t2" style="--d:1.99s" x="181.9" y="144.8" textLength="161.2" lengthAdjust="spacingAndGlyphs">Ты нереально красивая</text>
+    <text class="w" style="--d:2.47s" x="20.5" y="163.4" textLength="73.2" lengthAdjust="spacingAndGlyphs">Ты лучшая</text>
+    <text class="w tw" style="--d:0.42s;--t:8.70s" x="114.2" y="163.4" textLength="142.5" lengthAdjust="spacingAndGlyphs">Ты умная и красивая</text>
+    <text class="w t2" style="--d:2.59s" x="276.9" y="163.4" textLength="62.7" lengthAdjust="spacingAndGlyphs">Ты супер</text>
+    <text class="w t3" style="--d:2.85s" x="27.2" y="182.0" textLength="49.0" lengthAdjust="spacingAndGlyphs">добрая</text>
+    <text class="w tw" style="--d:0.93s;--t:5.17s" x="103.9" y="182.0" textLength="94.6" lengthAdjust="spacingAndGlyphs">Ты особенная</text>
+    <text class="w t2" style="--d:2.12s" x="227.1" y="182.0" textLength="104.9" lengthAdjust="spacingAndGlyphs">Ты просто чудо</text>
+    <text class="w" style="--d:1.70s" x="37.5" y="200.6" textLength="137.1" lengthAdjust="spacingAndGlyphs">Ты обворожительна</text>
+    <text class="w t3" style="--d:1.02s" x="191.2" y="200.6" textLength="74.8" lengthAdjust="spacingAndGlyphs">Ты умница</text>
+    <text class="w t2 tw" style="--d:2.12s;--t:7.06s" x="281.3" y="200.6" textLength="42.7" lengthAdjust="spacingAndGlyphs">умная</text>
+    <text class="w t3 tw" style="--d:2.34s;--t:4.95s" x="48.4" y="219.1" textLength="63.1" lengthAdjust="spacingAndGlyphs">красивая</text>
+    <text class="w t2" style="--d:0.84s" x="129.3" y="219.1" textLength="125.9" lengthAdjust="spacingAndGlyphs">Ты замечательная</text>
+    <text class="w" style="--d:2.57s" x="272.7" y="219.1" textLength="39.3" lengthAdjust="spacingAndGlyphs">яркая</text>
+    <text class="w" style="--d:1.98s" x="61.4" y="237.7" textLength="62.9" lengthAdjust="spacingAndGlyphs">классная</text>
+    <text class="w hot" style="--d:1.30s" x="147.4" y="237.7" textLength="118.0" lengthAdjust="spacingAndGlyphs">Ты самая лучшая</text>
+    <path class="w t2" style="--d:2.67s" d="M293.6 239.5C283.8 232.4 287.4 223.5 293.6 228.4C299.8 223.5 303.4 232.4 293.6 239.5Z"/>
+    <text class="w t2" style="--d:2.02s" x="79.9" y="256.3" textLength="79.9" lengthAdjust="spacingAndGlyphs">прекрасная</text>
+    <text class="w hot" style="--d:1.91s" x="194.2" y="256.3" textLength="85.8" lengthAdjust="spacingAndGlyphs">Ты красивая</text>
+    <text class="w" style="--d:2.29s" x="99.2" y="274.9" textLength="161.5" lengthAdjust="spacingAndGlyphs">У тебя красивая улыбка</text>
+    <text class="w t2" style="--d:2.54s" x="121.3" y="293.5" textLength="117.4" lengthAdjust="spacingAndGlyphs">С тобой так легко</text>
+    <text class="w t2" style="--d:2.70s" x="154.4" y="312.1" textLength="51.2" lengthAdjust="spacingAndGlyphs">нежная</text>
+    <path class="w" style="--d:2.84s" d="M180.0 332.4C170.2 325.3 173.8 316.4 180.0 321.3C186.2 316.4 189.8 325.3 180.0 332.4Z"/>
+  </svg>
+  </button>
+  <h1 class="note">Все эти слова про тебя</h1>
+  <p class="hint" id="hint" hidden>нажми на сердце</p>
+</main>
+
+<!-- Положи свою песню рядом с этим файлом и назови её song.mp3 -->
+<audio id="song" src="song.mp3" preload="auto" loop></audio>
+
+<script>
+(function () {
+  'use strict';
+  var stage = document.getElementById('stage');
+  var hint = document.getElementById('hint');
+  var song = document.getElementById('song');
+  if (!stage || !hint || !song) return;
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  hint.hidden = false;
+
+  function show(playing) {
+    stage.classList.toggle('playing', playing);
+    stage.setAttribute('aria-label', playing ? 'Остановить музыку' : 'Включить музыку');
+    hint.textContent = playing ? 'музыка играет' : 'нажми на сердце';
+  }
+  song.addEventListener('play', function () { show(true); });
+  song.addEventListener('pause', function () { show(false); });
+
+  stage.addEventListener('click', function () {
+    stage.classList.add('touched');
+    if (!reduce && stage.animate) {
+      try {
+        stage.animate(
+          [{ transform: 'scale(1)' }, { transform: 'scale(1.05)', offset: 0.35 }, { transform: 'scale(1)' }],
+          { duration: 420, easing: 'ease-out' }
+        );
+      } catch (e) { /* the pop is a nicety */ }
+    }
+    if (song.paused) {
+      var p = song.play();
+      if (p && p.catch) {
+        p.catch(function () { song.pause(); hint.hidden = true; });
+      }
+    } else {
+      song.pause();
+    }
+  });
+})();
+</script>
+</body>
+</html>
